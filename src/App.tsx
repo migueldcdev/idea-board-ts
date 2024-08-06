@@ -3,14 +3,12 @@ import IdeasContainer from "./components/IdeasContainer";
 import CreateIdeaButton from "./components/CreateIdeaButton";
 
 function App() {
-  return ( 
+  return (
     <IdeasContext>
-        <div className="">Idea Board</div>  
-        <IdeasContainer />
-        <CreateIdeaButton />
+      <div className="">Idea Board</div>
+      <IdeasContainer />
+      <CreateIdeaButton />
     </IdeasContext>
-  
-   
   );
 }
 

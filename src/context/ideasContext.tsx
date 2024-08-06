@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect } from "react";
 
 import { Context, Idea } from "../types";
 
-
 export const ideasContext = createContext<Context | null>(null);
 
 const IdeasContext = ({ children }: { children: React.ReactNode }) => {

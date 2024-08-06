@@ -1,41 +1,32 @@
-import { useContext } from "react"
-import { v4 as uuidv4 } from 'uuid'
+import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-import { ideasContext } from "../../context/ideasContext"
+import { ideasContext } from "../../context/ideasContext";
 
-import { Context } from "../../types"
+import { Context } from "../../types";
 
-import { FaPlusCircle} from "react-icons/fa"
+import { FaPlusCircle } from "react-icons/fa";
 
- 
 const CreateIdeaButton = () => {
-    
-    const {ideas, setIdeas} = useContext(ideasContext) as Context;    
-    
-    const idea = {
-        id: uuidv4(),
-        title: '',
-        description: '',
-        date: Date.now(),
-        updated: false
-    }
+  const { ideas, setIdeas } = useContext(ideasContext) as Context;
 
+  const idea = {
+    id: uuidv4(),
+    title: "",
+    description: "",
+    date: Date.now(),
+    updated: false,
+  };
 
-    function createNewTile() {     
+  function createNewTile() {
+    setIdeas([...ideas, idea]);
+  }
 
-        setIdeas([...ideas, idea]);
-        
-    }
+  return (
+    <div className="container">
+      <FaPlusCircle className="button" onClick={() => createNewTile()} />
+    </div>
+  );
+};
 
-    return(       
-        <div className="container">            
-            <FaPlusCircle 
-                className="button" 
-                onClick={() => createNewTile()}
-            />            
-        </div>        
-    )
-
-}
-
-export default CreateIdeaButton
+export default CreateIdeaButton;
