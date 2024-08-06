@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import { ideasContext } from "../../context/ideasContext";
 
@@ -11,7 +11,11 @@ const IdeasContainer = () => {
 
   const [sortedIdeas, setSortedIdeas] = useState(ideas);
 
-  function sortIdeas(value: string) {
+  useEffect(() => {
+    sortIdeas();
+  }, [ideas]);
+
+  function sortIdeas(value?: string) {
     switch (value) {
       case "Date":
         setSortedIdeas(ideas.sort((x, y) => y.date - x.date));

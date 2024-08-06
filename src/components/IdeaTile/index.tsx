@@ -12,11 +12,9 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
 
   const { id, title, description } = idea as Idea;
 
-  const [inputHasChanged, setInputHasChanged] = useState(false);
+  const [inputTitle, setInputTitle] = useState(title);
 
-  const [descriptionCharCount, setDescriptionCharCount] = useState(
-    description.length,
-  );
+  const descriptionCharCount = description.length;
 
   const [confetti, setConfetti] = useState(false);
 
@@ -27,10 +25,9 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
   }
 
   //substitute = title === idea.title
-  // function handleChangeTitle(value) {
-  //     setInputHasChanged(true)
-  //     setTitle(value)
-  // }
+  function handleChangeTitle(value: string) {
+    setInputTitle(value);
+  }
 
   // function handleChangeDescription(value) {
 
@@ -42,40 +39,32 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
 
   // }
 
-  // function updateIdea() {
+  function updateIdea() {
+    const index = ideas.findIndex((item) => item.id === id);
+    console.log(ideas[index]);
+    ideas[index].title = "inputTitle";
+    console.log(ideas[index]);
 
-  //     const ideas = JSON.parse(ideas)
+    ideas[index].description = description;
 
-  //     const id = idea.id
+    ideas[index].date = Date.now();
 
-  //     const index = ideas.findIndex(item => item.id === id)
+    ideas[index].updated = true;
+    console.log(ideas);
+    setIdeas(ideas);
 
-  //     ideas[index].title = title
+    throwConfetti();
+  }
 
-  //     ideas[index].description = description
-
-  //     ideas[index].date = Date.now()
-
-  //     ideas[index].updated = true
-
-  //     setIdeas(JSON.stringify(ideas))
-
-  //     throwConfetti()
-
-  //     setInputHasChanged(false)
-
-  // }
-
-  // function throwConfetti() {
-  //     setConfetti(true)
-  //     setTimeout(() => {
-  //         setConfetti(false)
-  //     }, 5000)
-
-  // }
+  function throwConfetti() {
+    setConfetti(true);
+    setTimeout(() => {
+      setConfetti(false);
+    }, 5000);
+  }
 
   return (
-    <div className="tile">
+    <div className="">
       {confetti && (
         <Confetti numberOfPieces={100} gravity={0.2} recycle={false}></Confetti>
       )}
@@ -97,8 +86,8 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
           className="title"
           placeholder="Title"
           autoFocus
-          // onChange={(e) => handleChangeTitle(e.target.value)}
-          value={title}
+          onChange={(e) => handleChangeTitle(e.target.value)}
+          value={inputTitle}
         />
 
         <textarea
@@ -114,16 +103,11 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
           <div className="char-count">{descriptionCharCount}/140</div>
         )}
       </div>
-      {inputHasChanged && (
-        <div className="flex-end-container">
-          <button
-            className="update-button"
-            // onClick={() => updateIdea()}
-          >
-            Update
-          </button>
-        </div>
-      )}
+      <div className="flex-end-container">
+        <button className="update-button" onClick={() => updateIdea()}>
+          Update
+        </button>
+      </div>
     </div>
   );
 };
