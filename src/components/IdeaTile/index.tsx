@@ -13,8 +13,9 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
   const { id, title, description } = idea as Idea;
 
   const [inputTitle, setInputTitle] = useState(title);
+  const [inputDescription, setInputDescription] = useState(description);
 
-  const descriptionCharCount = description.length;
+  const inputDescriptionLength = inputDescription.length;
 
   const [confetti, setConfetti] = useState(false);
 
@@ -24,36 +25,35 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
     setIdeas(result);
   }
 
-  //substitute = title === idea.title
   function handleChangeTitle(value: string) {
     setInputTitle(value);
   }
 
-  // function handleChangeDescription(value) {
-
-  //     if (value.length <= 140) { //need to enforce max length cause does not work on mobile
-  //         setInputHasChanged(true)
-  //         setDescriptionCharCount(value.length)
-  //         setDescription(value)
-  //     }
-
-  // }
+  function handleChangeDescription(value: string) {
+    if (value.length <= 140) {
+      setInputDescription(value);
+    }
+  }
 
   function updateIdea() {
     const index = ideas.findIndex((item) => item.id === id);
-    console.log(ideas[index]);
-    ideas[index].title = "inputTitle";
-    console.log(ideas[index]);
+    if (index !== -1) {
+      const updatedIdeas = [...ideas];
 
-    ideas[index].description = description;
+      const updatedIdea = {
+        ...updatedIdeas[index],
+        title: inputTitle,
+        description: inputDescription,
+        date: Date.now(),
+        updated: true,
+      };
 
-    ideas[index].date = Date.now();
+      updatedIdeas[index] = updatedIdea;
 
-    ideas[index].updated = true;
-    console.log(ideas);
-    setIdeas(ideas);
-
-    throwConfetti();
+      setIdeas(updatedIdeas);
+      console.log(updatedIdeas);
+      throwConfetti();
+    }
   }
 
   function throwConfetti() {
@@ -95,19 +95,22 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
           rows={4}
           cols={26}
           maxLength={140}
-          // onChange={(e) => handleChangeDescription(e.target.value)}
-          value={description}
-        ></textarea>
+          onChange={(e) => handleChangeDescription(e.target.value)}
+          value={inputDescription}
+        />
 
-        {descriptionCharCount >= 110 && (
-          <div className="char-count">{descriptionCharCount}/140</div>
+        {inputDescriptionLength >= 110 && (
+          <div className="char-count">{inputDescriptionLength}/140</div>
         )}
       </div>
-      <div className="flex-end-container">
-        <button className="update-button" onClick={() => updateIdea()}>
-          Update
-        </button>
-      </div>
+      {title !== inputTitle ||
+        (description !== inputDescription && (
+          <div className="flex-end-container">
+            <button className="update-button" onClick={() => updateIdea()}>
+              Update
+            </button>
+          </div>
+        ))}
     </div>
   );
 };

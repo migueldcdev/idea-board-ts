@@ -6,7 +6,8 @@ export const ideasContext = createContext<Context | null>(null);
 
 const IdeasContext = ({ children }: { children: React.ReactNode }) => {
   const [ideas, setIdeas] = useState<Idea[]>(() => {
-    return JSON.parse(localStorage.getItem("ideas")!) || [];
+    const storedIdeas = localStorage.getItem("ideas");
+    return storedIdeas ? JSON.parse(localStorage.getItem("ideas")!) : [];
   });
 
   useEffect(() => {
