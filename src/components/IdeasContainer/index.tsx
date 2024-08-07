@@ -11,6 +11,8 @@ const IdeasContainer = () => {
 
   const [sortedIdeas, setSortedIdeas] = useState(ideas);
 
+  const orderingValues = ["Date", "Az"];
+
   const [targetValue, setTargetValue] = useState("");
 
   useEffect(() => {
@@ -23,10 +25,10 @@ const IdeasContainer = () => {
     let sortedIdeas = [...ideas];
 
     switch (value) {
-      case "Date":
+      case orderingValues[0]:
         sortedIdeas.sort((x, y) => y.date - x.date);
         break;
-      case "Az":
+      case orderingValues[1]:
         sortedIdeas.sort((x, y) => x.title.localeCompare(y.title));
         break;
 
@@ -45,8 +47,15 @@ const IdeasContainer = () => {
             <div className="select-order">
               <label>Sort by: </label>
               <select onChange={(e) => sortIdeas(e.target.value)}>
-                <option value={"Date"}>Date</option>
-                <option value={"Az"}>A-Z</option>
+                {orderingValues.map((value, index) => (
+                  <option
+                    key={index}
+                    value={value}
+                    selected={value === targetValue}
+                  >
+                    {value}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
