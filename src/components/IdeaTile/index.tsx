@@ -103,14 +103,17 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
           <div className="char-count">{inputDescriptionLength}/140</div>
         )}
       </div>
-      {title !== inputTitle ||
-        (description !== inputDescription && (
-          <div className="flex-end-container">
-            <button className="update-button" onClick={() => updateIdea()}>
-              Update
-            </button>
-          </div>
-        ))}
+      {title !== inputTitle || description !== inputDescription ? (
+        <div className="flex-end-container">
+          <button className="update-button" onClick={() => updateIdea()}>
+            Update
+          </button>
+        </div>
+      ) : (
+        <button disabled style={{ backgroundColor: "red" }}>
+          Update
+        </button>
+      )}
     </div>
   );
 };
