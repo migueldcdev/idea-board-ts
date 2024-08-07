@@ -75,7 +75,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
           {unixToDate(idea.date)}
         </div>
         <div>
-          <button className="delete-button" onClick={() => deleteIdea()}>
+          <button className="delete-button" onClick={deleteIdea}>
             x
           </button>
         </div>
@@ -105,7 +105,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
       </div>
       {title !== inputTitle || description !== inputDescription ? (
         <div className="flex-end-container">
-          <button className="update-button" onClick={() => updateIdea()}>
+          <button className="update-button" onClick={updateIdea}>
             Update
           </button>
         </div>
