@@ -16,17 +16,21 @@ const IdeasContainer = () => {
   }, [ideas]);
 
   function sortIdeas(value?: string) {
+    let sortedIdeas = [...ideas];
+
     switch (value) {
       case "Date":
-        setSortedIdeas(ideas.sort((x, y) => y.date - x.date));
+        sortedIdeas.sort((x, y) => y.date - x.date);
         break;
       case "Az":
-        setSortedIdeas(ideas.sort((x, y) => x.title.localeCompare(y.title)));
+        sortedIdeas.sort((x, y) => x.title.localeCompare(y.title));
         break;
 
       default:
-        setSortedIdeas(ideas.sort((x, y) => y.date - x.date));
+        sortedIdeas.sort((x, y) => y.date - x.date);
     }
+
+    setSortedIdeas(sortedIdeas);
   }
 
   return (
