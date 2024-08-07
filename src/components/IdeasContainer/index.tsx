@@ -11,11 +11,15 @@ const IdeasContainer = () => {
 
   const [sortedIdeas, setSortedIdeas] = useState(ideas);
 
+  const [targetValue, setTargetValue] = useState("");
+
   useEffect(() => {
-    sortIdeas();
+    sortIdeas(targetValue);
   }, [ideas]);
 
   function sortIdeas(value?: string) {
+    setTargetValue(value as string);
+
     let sortedIdeas = [...ideas];
 
     switch (value) {
@@ -42,7 +46,7 @@ const IdeasContainer = () => {
               <label>Sort by: </label>
               <select onChange={(e) => sortIdeas(e.target.value)}>
                 <option value={"Date"}>Date</option>
-                <option value={"Az"}>A-Z </option>
+                <option value={"Az"}>A-Z</option>
               </select>
             </div>
           </div>
