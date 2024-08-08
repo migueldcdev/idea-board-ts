@@ -19,7 +19,7 @@ const IdeasContainer = () => {
     sortIdeas(targetValue);
   }, [ideas]);
 
-  function sortIdeas(value?: string) {
+  function sortIdeas(value: string) {
     setTargetValue(value as string);
 
     let sortedIdeas = [...ideas];
