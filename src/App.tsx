@@ -5,7 +5,9 @@ import CreateIdeaButton from "./components/CreateIdeaButton";
 function App() {
   return (
     <IdeasContext>
-      <div className="">Idea Board</div>
+      <div className="font-lobster bg-dark text-light text-center text-4xl p-4">
+        Idea Board
+      </div>
       <IdeasContainer />
       <CreateIdeaButton />
     </IdeasContext>

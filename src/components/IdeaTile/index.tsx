@@ -64,26 +64,31 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
   }
 
   return (
-    <div className="">
+    <div className="bg-dark rounded w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 px-2 pb-3">
       {confetti && (
-        <Confetti numberOfPieces={100} gravity={0.2} recycle={false}></Confetti>
+        <Confetti
+          numberOfPieces={100}
+          gravity={0.2}
+          recycle={false}
+          className="mx-auto"
+        ></Confetti>
       )}
 
-      <div className="flex-between-container">
-        <div className="date">
+      <div className="flex justify-between">
+        <div className="text-primary mt-4 text-sm">
           {idea.updated ? "Updated " : "Created "}
           {unixToDate(idea.date)}
         </div>
         <div>
-          <button className="delete-button" onClick={deleteIdea}>
+          <button className="text-xl text-secondary" onClick={deleteIdea}>
             x
           </button>
         </div>
       </div>
-      <div className="center-items">
+      <div className="flex flex-col gap-4">
         <input
           type="text"
-          className="title"
+          className="rounded mt-2"
           placeholder="Title"
           autoFocus
           onChange={(e) => handleChangeTitle(e.target.value)}
@@ -91,29 +96,29 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
         />
 
         <textarea
-          className="description"
+          className="rounded"
           rows={4}
           cols={26}
           maxLength={140}
           onChange={(e) => handleChangeDescription(e.target.value)}
           value={inputDescription}
         />
-
-        {inputDescriptionLength >= 110 && (
-          <div className="char-count">{inputDescriptionLength}/140</div>
-        )}
       </div>
-      {title !== inputTitle || description !== inputDescription ? (
-        <div className="flex-end-container">
-          <button className="update-button" onClick={updateIdea}>
+      <div className="flex justify-between">
+        {inputDescriptionLength >= 110 && (
+          <div className="text-sm text-light mt-1">
+            {inputDescriptionLength}/140
+          </div>
+        )}
+        {(title !== inputTitle || description !== inputDescription) && (
+          <button
+            className="rounded bg-primary text-light px-2 py-1 mt-3 ml-auto"
+            onClick={updateIdea}
+          >
             Update
           </button>
-        </div>
-      ) : (
-        <button disabled style={{ backgroundColor: "red" }}>
-          Update
-        </button>
-      )}
+        )}
+      </div>
     </div>
   );
 };

@@ -23,8 +23,12 @@ const CreateIdeaButton = () => {
   }
 
   return (
-    <div className="container">
-      <FaPlusCircle className="button" data-testid="create-button" onClick={createNewTile} />
+    <div className="bg-dark flex justify-center items-center p-4 fixed bottom-0 w-full">
+      <FaPlusCircle
+        className="text-light text-4xl "
+        data-testid="create-button"
+        onClick={createNewTile}
+      />
     </div>
   );
 };
