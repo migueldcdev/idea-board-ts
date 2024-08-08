@@ -51,7 +51,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
       updatedIdeas[index] = updatedIdea;
 
       setIdeas(updatedIdeas);
-      console.log(updatedIdeas);
+
       throwConfetti();
     }
   }
