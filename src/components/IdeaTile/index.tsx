@@ -65,14 +65,17 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
 
   return (
     <div className="bg-dark rounded w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 px-2 pb-3">
-      {confetti && (
-        <Confetti
-          numberOfPieces={100}
-          gravity={0.2}
-          recycle={false}
-          className="mx-auto"
-        ></Confetti>
-      )}
+      <div className="mx-auto w-5/6">
+        {confetti && (
+          <Confetti
+            numberOfPieces={100}
+            gravity={0.2}
+            recycle={false}
+            className="mx-auto"
+            width={300}
+          ></Confetti>
+        )}
+      </div>
 
       <div className="flex justify-between">
         <div className="text-primary mt-4 text-sm">

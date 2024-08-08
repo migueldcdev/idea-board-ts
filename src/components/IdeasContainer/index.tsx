@@ -40,10 +40,10 @@ const IdeasContainer = () => {
   }
 
   return (
-    <div className="bg-light">
+    <div>
       {ideas.length > 0 ? (
         <div>
-          <div className="py-6 px-2 text-dark">
+          <div className="py-6 px-2 text-dark flex justify-center">
             <label>Sort by: </label>
             <select onChange={(e) => sortIdeas(e.target.value)}>
               {orderingValues.map((value, index) => (
@@ -65,7 +65,7 @@ const IdeasContainer = () => {
         </div>
       ) : (
         <div>
-          <p className="text-center text-xl p-3 text-dark">
+          <p className="text-center text-xl p-3 text-dark mt-6">
             You haven't added any ideas yet.
           </p>
         </div>
