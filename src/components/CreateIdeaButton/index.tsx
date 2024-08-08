@@ -24,7 +24,7 @@ const CreateIdeaButton = () => {
 
   return (
     <div className="container">
-      <FaPlusCircle className="button" onClick={createNewTile} />
+      <FaPlusCircle className="button" data-testid="create-button" onClick={createNewTile} />
     </div>
   );
 };
