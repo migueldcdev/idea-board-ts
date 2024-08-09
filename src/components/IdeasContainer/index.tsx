@@ -43,9 +43,9 @@ const IdeasContainer = () => {
     <div>
       {ideas.length > 0 ? (
         <div>
-          <div className="py-6 px-2 text-dark flex justify-center">
-            <label>Sort by: </label>
-            <select onChange={(e) => sortIdeas(e.target.value)}>
+          <div className="py-6 px-2 text-white flex justify-center">
+            <label className="mt-1 font-bold">Sort by: </label>
+            <select className="rounded ml-2 text-slate-900 p-1" onChange={(e) => sortIdeas(e.target.value)}>
               {orderingValues.map((value, index) => (
                 <option
                   key={index}

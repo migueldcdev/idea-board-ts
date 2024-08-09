@@ -3,7 +3,7 @@
 ## Tasks
 
 - Desktop layout :white_check_mark:
-- Improve UI(copy good pages)
+- Improve UI(copy good pages) :white_check_mark:
 - Move types to dev dependecies :white_check_mark:
 - Rename date to timestamp :white_check_mark:
 - Eslint rules, add not default imports
