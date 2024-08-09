@@ -3,7 +3,7 @@
 - Desktop layout 
 - Improve UI
 - Move types to dev dependecies :white_check_mark:
-- Rename date to timestamp
+- Rename date to timestamp :white_check_mark:
 - Bundlephobia to check libraries size
 - eslint rules not default imports
 - When writing tests try to break the code
