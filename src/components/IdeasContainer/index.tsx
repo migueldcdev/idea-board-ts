@@ -57,7 +57,7 @@ const IdeasContainer = () => {
               ))}
             </select>
           </div>
-          <div className="flex flex-col gap-6 items-center h-4/6">
+          <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center place-items-center h-4/6">
             {sortedIdeas.map((element) => (
               <IdeaTile key={element.id} idea={element} />
             ))}

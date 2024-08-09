@@ -64,7 +64,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
   }
 
   return (
-    <div className="bg-dark rounded w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 px-2 pb-3">
+    <div className="bg-dark rounded w-5/6 md:4/6 px-4 pb-3 md:mt-12">
       <div className="mx-auto w-5/6">
         {confetti && (
           <Confetti
