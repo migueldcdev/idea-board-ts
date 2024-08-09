@@ -83,7 +83,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
           {unixToDate(idea.timestamp)}
         </div>
         <div>
-          <button className="text-xl text-rose-500 cursor-pointer mt-2 hover:text-rose-400" onClick={deleteIdea}>
+          <button className="text-xl text-slate-800 cursor-pointer mt-2 hover:text-slate-600" onClick={deleteIdea}>
             x
           </button>
         </div>
@@ -91,7 +91,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
       <div className="flex flex-col gap-4">
         <input
           type="text"
-          className="rounded-full mt-4 p-3 bg-slate-200 text-slate-900"
+          className="rounded-full mt-4 p-3 bg-slate-200 text-slate-900 focus:border-indigo-500"
           placeholder="Title"
           autoFocus
           onChange={(e) => handleChangeTitle(e.target.value)}
