@@ -65,7 +65,7 @@ const IdeasContainer = () => {
         </div>
       ) : (
         <div>
-          <p className="text-center text-xl p-3 text-dark mt-6">
+          <p className="text-center text-xl p-3 text-slate-100 mt-12">
             You haven't added any ideas yet.
           </p>
         </div>
