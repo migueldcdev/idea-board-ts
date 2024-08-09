@@ -2,7 +2,7 @@
 
 ## Tasks
 
-- Desktop layout 
+- Desktop layout :white_check_mark:
 - Improve UI(copy good pages)
 - Move types to dev dependecies :white_check_mark:
 - Rename date to timestamp :white_check_mark:
