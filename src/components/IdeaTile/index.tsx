@@ -91,7 +91,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
       <div className="flex flex-col gap-4">
         <input
           type="text"
-          className="rounded-full mt-4 p-3 bg-slate-200"
+          className="rounded-full mt-4 p-3 bg-slate-200 text-slate-900"
           placeholder="Title"
           autoFocus
           onChange={(e) => handleChangeTitle(e.target.value)}
@@ -99,7 +99,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
         />
 
         <textarea
-          className="rounded-lg bg-slate-200 p-3 resize-none"
+          className="rounded-lg bg-slate-200 p-3 resize-none text-slate-900"
           rows={4}
           cols={26}
           maxLength={140}

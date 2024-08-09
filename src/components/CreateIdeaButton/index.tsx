@@ -27,7 +27,7 @@ const CreateIdeaButton = () => {
       <div className="bg-slate-900 blur-lg p-2 w-full"></div>
       <div className="w-full flex justify-center p-4 bg-slate-100">
         <FaPlusCircle
-          className="text-slate-900 text-4xl cursor-pointer"
+          className="text-slate-900 text-4xl cursor-pointer hover:text-slate-800"
           data-testid="create-button"
           onClick={createNewTile}
         />

@@ -18,4 +18,4 @@
 
 - Bundlephobia to check libraries size
 - When writing tests try to break the code
-- When writting a component ask, "What this component do?"
+- When writting a component ask, "What this component does?"
