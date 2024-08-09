@@ -14,7 +14,7 @@ const CreateIdeaButton = () => {
     id: uuidv4(),
     title: "",
     description: "",
-    date: Date.now(),
+    timestamp: Date.now(),
     updated: false,
   };
 

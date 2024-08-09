@@ -44,7 +44,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
         ...updatedIdeas[index],
         title: inputTitle,
         description: inputDescription,
-        date: Date.now(),
+        timestamp: Date.now(),
         updated: true,
       };
 
@@ -80,7 +80,7 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
       <div className="flex justify-between">
         <div className="text-primary mt-4 text-sm">
           {idea.updated ? "Updated " : "Created "}
-          {unixToDate(idea.date)}
+          {unixToDate(idea.timestamp)}
         </div>
         <div>
           <button className="text-xl text-secondary" onClick={deleteIdea}>

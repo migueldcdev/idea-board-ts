@@ -26,14 +26,14 @@ const IdeasContainer = () => {
 
     switch (value) {
       case orderingValues[0]:
-        sortedIdeas.sort((x, y) => y.date - x.date);
+        sortedIdeas.sort((x, y) => y.timestamp - x.timestamp);
         break;
       case orderingValues[1]:
         sortedIdeas.sort((x, y) => x.title.localeCompare(y.title));
         break;
 
       default:
-        sortedIdeas.sort((x, y) => y.date - x.date);
+        sortedIdeas.sort((x, y) => y.timestamp - x.timestamp);
     }
 
     setSortedIdeas(sortedIdeas);
