@@ -5,9 +5,9 @@ import { ideasContext } from "../../context/ideasContext";
 
 import { Idea, Context } from "../../types";
 
-import unixToDate from "../../utils";
+import { unixToDate } from "../../utils";
 
-const IdeaTile = ({ idea }: { idea: Idea }) => {
+export const IdeaTile = ({ idea }: { idea: Idea }) => {
   const { ideas, setIdeas } = useContext(ideasContext) as Context;
 
   const { id, title, description } = idea as Idea;
@@ -130,4 +130,3 @@ const IdeaTile = ({ idea }: { idea: Idea }) => {
   );
 };
 
-export default IdeaTile;

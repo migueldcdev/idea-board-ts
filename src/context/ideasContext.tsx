@@ -4,7 +4,7 @@ import { Context, Idea } from "../types";
 
 export const ideasContext = createContext<Context | null>(null);
 
-const IdeasContext = ({ children }: { children: React.ReactNode }) => {
+export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
   const [ideas, setIdeas] = useState<Idea[]>(() => {
     const storedIdeas = localStorage.getItem("ideas");
     return storedIdeas ? JSON.parse(localStorage.getItem("ideas")!) : [];
@@ -21,4 +21,4 @@ const IdeasContext = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default IdeasContext;
+

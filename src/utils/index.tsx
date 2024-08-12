@@ -1,4 +1,4 @@
-const unixToDate = (unix: number) => {
+export const unixToDate = (unix: number) => {
   const date = new Date(unix);
 
   const day = date.getDate();
@@ -8,4 +8,3 @@ const unixToDate = (unix: number) => {
   return day + "/" + (month + 1) + "/" + year;
 };
 
-export default unixToDate;

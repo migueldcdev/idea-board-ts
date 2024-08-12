@@ -7,7 +7,7 @@ import { Context } from "../../types";
 
 import { FaPlusCircle } from "react-icons/fa";
 
-const CreateIdeaButton = () => {
+export const CreateIdeaButton = () => {
   const { ideas, setIdeas } = useContext(ideasContext) as Context;
 
   const idea = {
@@ -36,4 +36,3 @@ const CreateIdeaButton = () => {
   );
 };
 
-export default CreateIdeaButton;

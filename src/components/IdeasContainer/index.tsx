@@ -4,9 +4,9 @@ import { ideasContext } from "../../context/ideasContext";
 
 import { Context } from "../../types";
 
-import IdeaTile from "../IdeaTile";
+import { IdeaTile } from "../IdeaTile";
 
-const IdeasContainer = () => {
+export const IdeasContainer = () => {
   const { ideas } = useContext(ideasContext) as Context;
 
   const [sortedIdeas, setSortedIdeas] = useState(ideas);
@@ -75,4 +75,4 @@ const IdeasContainer = () => {
   );
 };
 
-export default IdeasContainer;
+
