@@ -63,6 +63,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
             <input
               className="rounded-full bg-slate-800 text-white px-4 py-2 mt-3 ml-auto hover:bg-slate-600"
               type="submit"
+              value="Update"
             />
           ) : (
             <div className="py-6 mt-1"></div>
