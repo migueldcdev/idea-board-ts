@@ -8,7 +8,7 @@ import { Idea, Context } from "../../types";
 import { unixToDate } from "../../utils";
 
 export const IdeaTile = ({ idea }: { idea: Idea }) => {
-  const { ideas, setIdeas } = useContext(ideasContext) as Context;
+  const { ideas, setIdeas, deleteIdea } = useContext(ideasContext) as Context;
 
   const { id, title, description } = idea as Idea;
 
@@ -18,12 +18,6 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
   const inputDescriptionLength = inputDescription.length;
 
   const [confetti, setConfetti] = useState(false);
-
-  function deleteIdea() {
-    const result = ideas.filter((idea: Idea) => idea.id !== id);
-
-    setIdeas(result);
-  }
 
   function handleChangeTitle(value: string) {
     setInputTitle(value);
@@ -83,7 +77,10 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
           {unixToDate(idea.timestamp)}
         </div>
         <div>
-          <button className="text-xl text-slate-800 cursor-pointer mt-2 hover:text-slate-600" onClick={deleteIdea}>
+          <button
+            className="text-xl text-slate-800 cursor-pointer mt-2 hover:text-slate-600"
+            onClick={() => deleteIdea(id)}
+          >
             x
           </button>
         </div>
@@ -113,20 +110,17 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
             {inputDescriptionLength}/140
           </div>
         )}
-        {(title !== inputTitle || description !== inputDescription) ? (
+        {title !== inputTitle || description !== inputDescription ? (
           <button
             className="rounded-full bg-slate-800 text-white px-4 py-2 mt-3 ml-auto hover:bg-slate-600"
             onClick={updateIdea}
           >
             Update
           </button>
-        )
-          :
-
+        ) : (
           <div className="py-6 mt-1"></div>
-      }
+        )}
       </div>
     </div>
   );
 };
-

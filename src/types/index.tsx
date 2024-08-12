@@ -9,4 +9,5 @@ export type Idea = {
 export type Context = {
   ideas: Idea[];
   setIdeas: (ideas: Idea[]) => void;
+  deleteIdea: (id: string) => void;
 };

@@ -14,11 +14,15 @@ export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("ideas", JSON.stringify(ideas));
   }, [ideas]);
 
+  function deleteIdea(id: string) {
+    const result = ideas.filter((idea: Idea) => idea.id !== id);
+
+    setIdeas(result);
+  }
+
   return (
-    <ideasContext.Provider value={{ ideas, setIdeas }}>
+    <ideasContext.Provider value={{ ideas, setIdeas, deleteIdea }}>
       {children}
     </ideasContext.Provider>
   );
 };
-
-
