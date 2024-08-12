@@ -7,4 +7,3 @@ export const unixToDate = (unix: number) => {
 
   return day + "/" + (month + 1) + "/" + year;
 };
-

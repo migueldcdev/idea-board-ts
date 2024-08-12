@@ -20,7 +20,7 @@ To start the development server and begin working on your project, run:
 npm run dev
 ```
 
-### Testing 
+### Testing
 
 To run the test suite and ensure everything is functioning correctly, use:
 
@@ -33,5 +33,5 @@ npm run test
 To format your code using Prettier, execute:
 
 ```bash
-npx prettier . --write 
+npx prettier . --write
 ```
