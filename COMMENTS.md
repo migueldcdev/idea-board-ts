@@ -6,7 +6,7 @@
 - Improve UI(copy good pages) :white_check_mark:
 - Move types to dev dependecies :white_check_mark:
 - Rename date to timestamp :white_check_mark:
-- Eslint rules, add not default imports
+- Eslint rules, add not default imports :white_check_mark:
 - Implement a form library
 - Implement test.each
 - Implement E2E with playwright
