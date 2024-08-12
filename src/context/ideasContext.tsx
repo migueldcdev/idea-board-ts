@@ -5,14 +5,6 @@ import { Context, Idea, Input } from "../types";
 
 export const ideasContext = createContext<Context | null>(null);
 
-const idea = {
-  id: uuidv4(),
-  title: "",
-  description: "",
-  timestamp: Date.now(),
-  updated: false,
-};
-
 export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
   const [ideas, setIdeas] = useState<Idea[]>(() => {
     const storedIdeas = localStorage.getItem("ideas");
@@ -22,6 +14,14 @@ export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     localStorage.setItem("ideas", JSON.stringify(ideas));
   }, [ideas]);
+
+  const idea = {
+    id: uuidv4(),
+    title: "",
+    description: "",
+    timestamp: Date.now(),
+    updated: false,
+  };
 
   function createIdea() {
     setIdeas([...ideas, idea]);
