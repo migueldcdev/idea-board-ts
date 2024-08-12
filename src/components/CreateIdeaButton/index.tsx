@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 import { ideasContext } from "../../context/ideasContext";
 
@@ -8,19 +7,7 @@ import { Context } from "../../types";
 import { FaPlusCircle } from "react-icons/fa";
 
 export const CreateIdeaButton = () => {
-  const { ideas, setIdeas } = useContext(ideasContext) as Context;
-
-  const idea = {
-    id: uuidv4(),
-    title: "",
-    description: "",
-    timestamp: Date.now(),
-    updated: false,
-  };
-
-  function createNewTile() {
-    setIdeas([...ideas, idea]);
-  }
+  const { createIdea } = useContext(ideasContext) as Context;
 
   return (
     <div className=" fixed bottom-0 w-full">
@@ -29,10 +16,9 @@ export const CreateIdeaButton = () => {
         <FaPlusCircle
           className="text-slate-900 text-4xl cursor-pointer hover:text-slate-800"
           data-testid="create-button"
-          onClick={createNewTile}
+          onClick={createIdea}
         />
       </div>
     </div>
   );
 };
-

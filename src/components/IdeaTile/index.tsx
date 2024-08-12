@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import Confetti from "react-confetti";
+//import Confetti from "react-confetti";
 
 import { ideasContext } from "../../context/ideasContext";
 
@@ -8,7 +8,7 @@ import { Idea, Context } from "../../types";
 import { unixToDate } from "../../utils";
 
 export const IdeaTile = ({ idea }: { idea: Idea }) => {
-  const { ideas, setIdeas, deleteIdea } = useContext(ideasContext) as Context;
+  const { deleteIdea, updateIdea } = useContext(ideasContext) as Context;
 
   const { id, title, description } = idea as Idea;
 
@@ -17,7 +17,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
 
   const inputDescriptionLength = inputDescription.length;
 
-  const [confetti, setConfetti] = useState(false);
+  //const [confetti, setConfetti] = useState(false);
 
   function handleChangeTitle(value: string) {
     setInputTitle(value);
@@ -29,38 +29,21 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
     }
   }
 
-  function updateIdea() {
-    const index = ideas.findIndex((item) => item.id === id);
-    if (index !== -1) {
-      const updatedIdeas = [...ideas];
-
-      const updatedIdea = {
-        ...updatedIdeas[index],
-        title: inputTitle,
-        description: inputDescription,
-        timestamp: Date.now(),
-        updated: true,
-      };
-
-      updatedIdeas[index] = updatedIdea;
-
-      setIdeas(updatedIdeas);
-
-      throwConfetti();
-    }
+  function handleUpdateIdea() {
+    updateIdea(id, { title: inputTitle, description: inputDescription });
   }
 
-  function throwConfetti() {
-    setConfetti(true);
-    setTimeout(() => {
-      setConfetti(false);
-    }, 5000);
-  }
+  // function throwConfetti() {
+  //   setConfetti(true);
+  //   setTimeout(() => {
+  //     setConfetti(false);
+  //   }, 5000);
+  // }
 
   return (
     <div className="bg-white rounded-lg w-5/6 md:4/6 px-4 pb-3 mt-6 md:mt-12">
       <div className="mx-auto w-5/6">
-        {confetti && (
+        {/* {confetti && (
           <Confetti
             numberOfPieces={100}
             gravity={0.2}
@@ -68,7 +51,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
             className="mx-auto"
             width={300}
           ></Confetti>
-        )}
+        )} */}
       </div>
 
       <div className="flex justify-between">
@@ -113,7 +96,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
         {title !== inputTitle || description !== inputDescription ? (
           <button
             className="rounded-full bg-slate-800 text-white px-4 py-2 mt-3 ml-auto hover:bg-slate-600"
-            onClick={updateIdea}
+            onClick={handleUpdateIdea}
           >
             Update
           </button>

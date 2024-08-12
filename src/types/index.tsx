@@ -9,5 +9,12 @@ export type Idea = {
 export type Context = {
   ideas: Idea[];
   setIdeas: (ideas: Idea[]) => void;
+  createIdea: () => void;
   deleteIdea: (id: string) => void;
+  updateIdea: (id: string, input: Input) => void;
+};
+
+export type Input = {
+  title: string;
+  description: string;
 };
