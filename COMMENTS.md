@@ -13,6 +13,7 @@
 - Implement a custom render with React Test Library
 - Move the heavy lifting to the context(low level components should be as dumb as possible) :white_check_mark:
 - Fix the sorting(remove useEffect add SortOptions type)
+- Implement new update notification
 
 ## Consider
 

@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-//import Confetti from "react-confetti";
 
 import { ideasContext } from "../../context/ideasContext";
 
@@ -17,8 +16,6 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
 
   const inputDescriptionLength = inputDescription.length;
 
-  //const [confetti, setConfetti] = useState(false);
-
   function handleChangeTitle(value: string) {
     setInputTitle(value);
   }
@@ -33,27 +30,8 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
     updateIdea(id, { title: inputTitle, description: inputDescription });
   }
 
-  // function throwConfetti() {
-  //   setConfetti(true);
-  //   setTimeout(() => {
-  //     setConfetti(false);
-  //   }, 5000);
-  // }
-
   return (
     <div className="bg-white rounded-lg w-5/6 md:4/6 px-4 pb-3 mt-6 md:mt-12">
-      <div className="mx-auto w-5/6">
-        {/* {confetti && (
-          <Confetti
-            numberOfPieces={100}
-            gravity={0.2}
-            recycle={false}
-            className="mx-auto"
-            width={300}
-          ></Confetti>
-        )} */}
-      </div>
-
       <div className="flex justify-between">
         <div className="text-indigo-600 mt-6 text-sm">
           {idea.updated ? "Updated " : "Created "}
