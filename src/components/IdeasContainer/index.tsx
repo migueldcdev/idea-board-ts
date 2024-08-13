@@ -6,7 +6,7 @@ import { Context, Idea } from "../../types";
 
 import { IdeaTile } from "../IdeaTile";
 
-const orderingValues = ["Date", "AZ"];
+const sortingValues = ["Date", "AZ"];
 
 type SortingOptions = "Date" | "AZ";
 
@@ -44,7 +44,7 @@ export const IdeasContainer = () => {
               className="rounded ml-2 text-slate-900 p-1"
               onChange={(e) => sortIdeas(e.target.value as SortingOptions)}
             >
-              {orderingValues.map((value, index) => (
+              {sortingValues.map((value, index) => (
                 <option key={index} value={value}>
                   {value}
                 </option>
