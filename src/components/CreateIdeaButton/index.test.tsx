@@ -1,6 +1,5 @@
 import { test, describe, expect, vi } from "vitest";
-import { fireEvent } from "../../utils/test-utils";
-import { render } from "../../utils/test-utils";
+import { render, screen, fireEvent } from "../../utils/test-utils";
 import { CreateIdeaButton } from ".";
 
 const context = {
@@ -13,14 +12,14 @@ const context = {
 
 describe("CreateIdeaButton component", () => {
   test("should render", () => {
-    const { container } = render(<CreateIdeaButton />, context);
-    const button = container.getElementsByClassName("cursor-pointer");
+    render(<CreateIdeaButton />, context);
+    const button = screen.getAllByTestId("create-button");
     expect(button.length).toBeGreaterThan(0);
   });
 
   test("shoud handle createIdea function", () => {
-    const { container } = render(<CreateIdeaButton />, context);
-    const button = container.getElementsByClassName("cursor-pointer")[0];
+    render(<CreateIdeaButton />, context);
+    const button = screen.getAllByTestId("create-button")[0];
 
     fireEvent.click(button);
 
