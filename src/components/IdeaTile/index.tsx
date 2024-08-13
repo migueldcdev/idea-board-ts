@@ -5,7 +5,7 @@ import { ideasContext } from "../../context/ideasContext";
 
 import { Idea, Context, Input } from "../../types";
 
-import { unixToDate } from "../../utils";
+import { unixToDate } from "../../utils/date";
 
 export const IdeaTile = ({ idea }: { idea: Idea }) => {
   const { deleteIdea, updateIdea } = useContext(ideasContext) as Context;
