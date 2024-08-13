@@ -10,7 +10,7 @@
 - Implement a form library :white_check_mark:
 - Implement test.each
 - Implement E2E with playwright
-- Implement a custom render with React Test Library
+- Implement a custom render with React Test Library :white_check_mark:
 - Move the heavy lifting to the context (low level components should be as dumb as possible) :white_check_mark:
 - Fix the sorting (remove useEffect add SortOptions type) ▶️
 - Research useReducer
