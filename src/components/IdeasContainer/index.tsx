@@ -1,42 +1,38 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { ideasContext } from "../../context/ideasContext";
 
-import { Context } from "../../types";
+import { Context, Idea } from "../../types";
 
 import { IdeaTile } from "../IdeaTile";
+
+const orderingValues = ["Date", "AZ"];
+
+type SortingOptions = "Date" | "AZ";
 
 export const IdeasContainer = () => {
   const { ideas } = useContext(ideasContext) as Context;
 
-  const [sortedIdeas, setSortedIdeas] = useState(ideas);
-
-  const orderingValues = ["Date", "Az"];
-
-  const [targetValue, setTargetValue] = useState("");
+  const [sortedIdeas, setSortedIdeas] = useState<Idea[]>(ideas);
 
   useEffect(() => {
-    sortIdeas(targetValue);
-  }, [ideas]);
+    sortIdeas("Date")
+  }, [ideas])
 
-  function sortIdeas(value: string) {
-    setTargetValue(value as string);
-
-    let sortedIdeas = [...ideas];
+  function sortIdeas(value: SortingOptions) {
+    const ideaArray: Idea[] = [...ideas];
 
     switch (value) {
-      case orderingValues[0]:
-        sortedIdeas.sort((x, y) => y.timestamp - x.timestamp);
+      case "Date":
+        setSortedIdeas(ideaArray.sort((x, y) => y.timestamp - x.timestamp));
+        console.log(sortedIdeas);
         break;
-      case orderingValues[1]:
-        sortedIdeas.sort((x, y) => x.title.localeCompare(y.title));
-        break;
-
-      default:
-        sortedIdeas.sort((x, y) => y.timestamp - x.timestamp);
+      case "AZ":
+        setSortedIdeas(
+          ideaArray.sort((x, y) => x.title.localeCompare(y.title)),
+        );
+        console.log(sortedIdeas);
     }
-
-    setSortedIdeas(sortedIdeas);
   }
 
   return (
@@ -47,14 +43,10 @@ export const IdeasContainer = () => {
             <label className="mt-1 font-bold">Sort by: </label>
             <select
               className="rounded ml-2 text-slate-900 p-1"
-              onChange={(e) => sortIdeas(e.target.value)}
+              onChange={(e) => sortIdeas(e.target.value as SortingOptions)}
             >
               {orderingValues.map((value, index) => (
-                <option
-                  key={index}
-                  value={value}
-                  selected={value === targetValue}
-                >
+                <option key={index} value={value}>
                   {value}
                 </option>
               ))}

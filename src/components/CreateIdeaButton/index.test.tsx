@@ -9,7 +9,15 @@ describe("Create idea button test", () => {
 
   beforeEach(() => {
     render(
-      <ideasContext.Provider value={{ ideas: mockIdeas, setIdeas, createIdea: vi.fn(), deleteIdea: vi.fn(), updateIdea: vi.fn() }}>
+      <ideasContext.Provider
+        value={{
+          ideas: mockIdeas,
+          setIdeas,
+          createIdea: vi.fn(),
+          deleteIdea: vi.fn(),
+          updateIdea: vi.fn(),
+        }}
+      >
         <CreateIdeaButton />
       </ideasContext.Provider>,
     );
