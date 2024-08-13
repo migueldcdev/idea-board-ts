@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import unixToDate from ".";
+import { unixToDate } from ".";
 
 describe("Utils test", () => {
   test("properly converts unix to redable date", () => {

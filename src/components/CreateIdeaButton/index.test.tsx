@@ -1,6 +1,6 @@
 import { beforeEach, describe, test, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import CreateIdeaButton from ".";
+import { CreateIdeaButton } from ".";
 import { ideasContext } from "../../context/ideasContext";
 
 describe("Create idea button test", () => {
@@ -9,7 +9,7 @@ describe("Create idea button test", () => {
 
   beforeEach(() => {
     render(
-      <ideasContext.Provider value={{ ideas: mockIdeas, setIdeas }}>
+      <ideasContext.Provider value={{ ideas: mockIdeas, setIdeas, createIdea: vi.fn(), deleteIdea: vi.fn(), updateIdea: vi.fn() }}>
         <CreateIdeaButton />
       </ideasContext.Provider>,
     );
