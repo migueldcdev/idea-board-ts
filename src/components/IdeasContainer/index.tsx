@@ -16,8 +16,8 @@ export const IdeasContainer = () => {
   const [sortedIdeas, setSortedIdeas] = useState<Idea[]>(ideas);
 
   useEffect(() => {
-    sortIdeas("Date")
-  }, [ideas])
+    sortIdeas("Date");
+  }, [ideas]);
 
   function sortIdeas(value: SortingOptions) {
     const ideaArray: Idea[] = [...ideas];
@@ -25,13 +25,12 @@ export const IdeasContainer = () => {
     switch (value) {
       case "Date":
         setSortedIdeas(ideaArray.sort((x, y) => y.timestamp - x.timestamp));
-        console.log(sortedIdeas);
+
         break;
       case "AZ":
         setSortedIdeas(
           ideaArray.sort((x, y) => x.title.localeCompare(y.title)),
         );
-        console.log(sortedIdeas);
     }
   }
 
