@@ -8,7 +8,7 @@
 - Rename date to timestamp :white_check_mark:
 - Eslint rules, add not default imports :white_check_mark:
 - Implement a form library :white_check_mark:
-- Implement test.each
+- Implement test.each :white_check_mark:
 - Implement E2E with playwright
 - Implement a custom render with React Test Library :white_check_mark:
 - Move the heavy lifting to the context (low level components should be as dumb as possible) :white_check_mark:
