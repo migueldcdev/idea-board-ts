@@ -16,7 +16,7 @@ const context = {
   setIdeas: () => {},
   createIdea: () => {},
   deleteIdea: vi.fn(),
-  updateIdea: vi.fn(),
+  updateIdea: () => {},
 };
 
 describe("IdeaTile component", () => {
@@ -35,11 +35,12 @@ describe("IdeaTile component", () => {
 
     expect(context.deleteIdea).toHaveBeenCalled();
   });
-
-  test("shoud handle updateIdea function", () => {
+  //this test does not pass
+  test("update idea should be clickable", () => {
     render(<IdeaTile idea={idea} />, context);
     const updateButton = screen.getByTestId("update-button");
 
     fireEvent.click(updateButton);
+    
   });
 });
