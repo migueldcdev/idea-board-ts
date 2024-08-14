@@ -40,7 +40,7 @@ describe("IdeasContainer component", () => {
     expect(ideaTiles.length).toBe(3);
   });
 
-  test("should order by date", () => {
+  test("should sort by date", () => {
     render(<IdeasContainer />, context);
     const ideaTiles = screen.getAllByTestId("tile");
     expect(ideaTiles[0].innerHTML).toContain("carrot");
