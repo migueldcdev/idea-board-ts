@@ -1,5 +1,5 @@
 import { test, describe, expect } from "vitest";
-import { fireEvent, render, screen } from "../../utils/test-utils";
+import { render, screen } from "../../utils/test-utils";
 
 import { IdeasContainer } from ".";
 
