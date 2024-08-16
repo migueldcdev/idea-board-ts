@@ -44,6 +44,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
           autoFocus
           {...register("title")}
           defaultValue={title}
+          data-testid="input-name"
         />
 
         <textarea
@@ -53,6 +54,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
           maxLength={140}
           {...register("description")}
           defaultValue={description}
+          data-testid="input-description"
         />
         <div className="flex justify-between">
           {inputDescriptionLength >= 110 && (

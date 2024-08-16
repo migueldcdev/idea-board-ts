@@ -2,7 +2,7 @@ import { test, describe, expect } from "vitest";
 import { render, screen } from "../../utils/test-utils";
 
 import { IdeasContainer } from ".";
- 
+
 const ideas = [
   {
     id: "a8710270-9b41-4feb-bd7e-f91bd698cc5c",
@@ -25,7 +25,7 @@ const ideas = [
     timestamp: 1723553459039,
     updated: true,
   },
-]
+];
 
 const context = {
   ideas: ideas,

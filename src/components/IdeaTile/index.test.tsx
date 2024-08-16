@@ -41,6 +41,5 @@ describe("IdeaTile component", () => {
     const updateButton = screen.getByTestId("update-button");
 
     fireEvent.click(updateButton);
-    
   });
 });
