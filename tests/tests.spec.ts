@@ -63,9 +63,9 @@ test("shows update button after adding description", async ({ page }) => {
 
   await createIdeaButton.click();
 
-  const inputTitle = page.getByTestId("input-description");
+  const inputDescription = page.getByTestId("input-description");
 
-  await inputTitle.fill("Idea description...");
+  await inputDescription.fill("Idea description...");
 
   const updateButton = page.getByTestId("update-button");
 
