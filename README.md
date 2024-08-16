@@ -28,6 +28,24 @@ To run the test suite and ensure everything is functioning correctly, use:
 npm run test
 ```
 
+To run playwright:
+
+```bash
+npx playwright test
+```
+
+To run playwright in a specific browser:
+
+```bash
+npx playwright test --project=chromium
+```
+
+To run playwiright in UI mode:
+
+```bash
+npx playwright test --ui
+```
+
 ### Code formatting
 
 To format your code using Prettier, execute:
