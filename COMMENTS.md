@@ -15,6 +15,16 @@
 - Fix the sorting (remove useEffect add SortOptions type) ▶️
 - Research useReducer :white_check_mark:
 
+17/08/24
+- Don't use test ids
+- Focus on accessibility (Lighthouse Chrome, be more sensitive about tag using)
+- Avoid array element selectors on testing
+- Don't use fireEvent, use userEvent
+- Playwright: one or two big tests
+- Mock set local.storage
+- Move sorting logic to its own function and unit test it 
+  
+
 ## Consider
 
 - Bundlephobia to check libraries size
