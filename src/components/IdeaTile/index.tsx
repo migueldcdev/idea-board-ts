@@ -39,7 +39,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
-          className="rounded-full mt-4 p-3 bg-slate-200 text-slate-900 focus:border-indigo-500"
+          className="rounded-lg mt-4 p-3 bg-slate-200 text-slate-900 focus:border-indigo-500"
           placeholder="Title"
           autoFocus
           {...register("title")}
