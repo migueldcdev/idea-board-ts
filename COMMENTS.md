@@ -18,8 +18,8 @@
 17/08/24
 - Don't use test ids
 - Focus on accessibility (Lighthouse Chrome, be more sensitive about tag using)
-- Avoid array element selectors on testing
-- Don't use fireEvent, use userEvent
+- Avoid array element selectors on testing 
+- Don't use fireEvent, use userEvent :white_check_mark:
 - Playwright: one or two big tests
 - Mock set local.storage
 - Move sorting logic to its own function and unit test it 

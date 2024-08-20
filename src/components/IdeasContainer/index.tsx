@@ -10,29 +10,19 @@ const sortingValues = ["Date", "AZ"];
 
 type SortingOptions = "Date" | "AZ";
 
-export const IdeasContainer = () => {
-  const { ideas } = useContext(ideasContext) as Context;
+export function sortIdeas(value: SortingOptions, ideas: Idea[]) {  
 
-  const [sortedIdeas, setSortedIdeas] = useState<Idea[]>(ideas);
-
-  useEffect(() => {
-    sortIdeas("Date");
-  }, [ideas]);
-
-  function sortIdeas(value: SortingOptions) {
-    const ideaArray: Idea[] = [...ideas];
-
-    switch (value) {
-      case "Date":
-        setSortedIdeas(ideaArray.sort((x, y) => y.timestamp - x.timestamp));
-
-        break;
-      case "AZ":
-        setSortedIdeas(
-          ideaArray.sort((x, y) => x.title.localeCompare(y.title)),
-        );
-    }
+  switch (value) {
+    case "Date":
+      return ideas.sort((x, y) => y.timestamp - x.timestamp)
+      break;
+    case "AZ":
+      return ideas.sort((x, y) => x.title.localeCompare(y.title))
   }
+}
+
+export const IdeasContainer = () => {
+  const { ideas } = useContext(ideasContext) as Context;    
 
   return (
     <div>
@@ -42,7 +32,7 @@ export const IdeasContainer = () => {
             <label className="mt-1 font-bold">Sort by: </label>
             <select
               className="rounded ml-2 text-slate-900 p-1"
-              onChange={(e) => sortIdeas(e.target.value as SortingOptions)}
+              onChange={(e) => sortIdeas(e.target.value as SortingOptions, ideas)}
             >
               {sortingValues.map((value, index) => (
                 <option key={index} value={value}>
@@ -52,7 +42,7 @@ export const IdeasContainer = () => {
             </select>
           </div>
           <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center place-items-center h-4/6">
-            {sortedIdeas.map((element) => (
+            {ideas.map((element) => (
               <IdeaTile key={element.id} idea={element} />
             ))}
           </div>
