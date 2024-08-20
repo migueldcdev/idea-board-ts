@@ -64,7 +64,7 @@ export const IdeasContainer = () => {
           </p>
         </div>
       )}
-      <div className="p-12"></div>
+      <div className="p-16"></div>
     </div>
   );
 };

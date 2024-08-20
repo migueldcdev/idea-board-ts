@@ -66,7 +66,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
           {title !== watch("title", "") ||
           description !== watch("description", "") ? (
             <input
-              className="rounded-full bg-slate-800 text-white px-4 py-2 mt-3 ml-auto hover:bg-slate-600"
+              className="rounded-full bg-indigo-800 text-white px-4 py-2 mt-3 ml-auto hover:bg-indigo-700 cursor-pointer"
               type="submit"
               value="Update"
               data-testid="update-button"
