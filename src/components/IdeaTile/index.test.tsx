@@ -1,6 +1,6 @@
 import { test, describe, expect, vi } from "vitest";
-import { fireEvent, render, screen } from "../../utils/test-utils";
-
+import { render, screen } from "../../utils/test-utils";
+import userEvent from "@testing-library/user-event";
 import { IdeaTile } from ".";
 
 const idea = {
@@ -31,7 +31,7 @@ describe("IdeaTile component", () => {
     render(<IdeaTile idea={idea} />, context);
     const deleteButton = screen.getAllByText("x")[0];
 
-    fireEvent.click(deleteButton);
+   userEvent.click(deleteButton);
 
     expect(context.deleteIdea).toHaveBeenCalled();
   });
@@ -40,6 +40,6 @@ describe("IdeaTile component", () => {
     render(<IdeaTile idea={idea} />, context);
     const updateButton = screen.getByTestId("update-button");
 
-    fireEvent.click(updateButton);
+   userEvent.click(updateButton);
   });
 });

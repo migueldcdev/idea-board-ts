@@ -1,5 +1,6 @@
 import { test, describe, expect, vi } from "vitest";
-import { render, screen, fireEvent } from "../../utils/test-utils";
+import { render, screen } from "../../utils/test-utils";
+import userEvent from "@testing-library/user-event";
 import { CreateIdeaButton } from ".";
 
 const context = {
@@ -21,7 +22,7 @@ describe("CreateIdeaButton component", () => {
     render(<CreateIdeaButton />, context);
     const button = screen.getAllByTestId("create-button")[0];
 
-    fireEvent.click(button);
+    userEvent.click(button);
 
     expect(context.createIdea).toHaveBeenCalled();
   });
