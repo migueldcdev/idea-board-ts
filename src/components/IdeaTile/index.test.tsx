@@ -15,31 +15,34 @@ const context = {
   ideas: [idea],
   setIdeas: () => {},
   createIdea: () => {},
-  deleteIdea: vi.fn(),
+  deleteIdea: () => {},
   updateIdea: () => {},
 };
 
 describe("IdeaTile component", () => {
   test("should render", async () => {
     render(<IdeaTile idea={idea} />, context);
-    const tile = await screen.findAllByTestId("tile");
+    const tile = await screen.findAllByRole("article");
 
     expect(tile.length).toBe(1);
   });
 
-  test("should handle deleteIdea function", () => {
-    render(<IdeaTile idea={idea} />, context);
+  test("should handle deleteIdea function", async () => {
+
+    const deleteIdea = vi.fn();
+
+    render(<IdeaTile idea={idea} />, {...context, deleteIdea});
     const deleteButton = screen.getAllByText("x")[0];
 
-    userEvent.click(deleteButton);
+    await userEvent.click(deleteButton);
 
-    expect(context.deleteIdea).toHaveBeenCalled();
+    expect(deleteIdea).toHaveBeenCalled();
   });
   //this test does not pass
-  test("update idea should be clickable", () => {
+  test("update idea should be clickable", async () => {
     render(<IdeaTile idea={idea} />, context);
-    const updateButton = screen.getByTestId("update-button");
+    const updateButton = screen.getByText("Update");
 
-    userEvent.click(updateButton);
+    await userEvent.click(updateButton);
   });
 });

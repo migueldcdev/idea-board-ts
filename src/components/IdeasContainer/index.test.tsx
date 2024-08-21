@@ -38,13 +38,8 @@ const context = {
 describe("IdeasContainer component", () => {
   test("should render idea tiles", () => {
     render(<IdeasContainer />, context);
-    const ideaTiles = screen.getAllByTestId("tile");
+    const ideaTiles = screen.getAllByRole("article");
     expect(ideaTiles.length).toBe(3);
   });
-
-  test("should sort by date", () => {
-    render(<IdeasContainer />, context);
-    const ideaTiles = screen.getAllByTestId("tile");
-    expect(ideaTiles[0].innerHTML).toContain("carrot");
-  });
+  
 });

@@ -18,9 +18,8 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
   const inputDescriptionLength = watch("description", "").length;
 
   return (
-    <div
-      className="bg-white rounded-lg w-5/6 md:4/6 px-4 pb-3 mt-6 md:mt-12"
-      data-testid="tile"
+    <article
+      className="bg-white rounded-lg w-5/6 md:4/6 px-4 pb-3 mt-6 md:mt-12"     
     >
       <div className="flex justify-between">
         <div className="text-indigo-600 mt-6 text-sm">
@@ -76,6 +75,6 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
           )}
         </div>
       </form>
-    </div>
+    </article>
   );
 };

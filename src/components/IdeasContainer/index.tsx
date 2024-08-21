@@ -24,7 +24,7 @@ export const IdeasContainer = () => {
   }
 
   return (
-    <div>
+    <main>
       {ideas.length > 0 ? (
         <div>
           <div className="py-6 px-2 text-white flex justify-center">
@@ -40,20 +40,20 @@ export const IdeasContainer = () => {
               ))}
             </select>
           </div>
-          <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center place-items-center h-4/6">
+          <section className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center place-items-center h-4/6">
             {sortedIdeas.map((element) => (
               <IdeaTile key={element.id} idea={element} />
             ))}
-          </div>
+          </section>
         </div>
       ) : (
-        <div>
+        <section>
           <p className="text-center text-xl p-3 text-slate-100 mt-12">
             You haven't added any ideas yet.
           </p>
-        </div>
+        </section>
       )}
       <div className="p-16"></div>
-    </div>
+    </main>
   );
 };
