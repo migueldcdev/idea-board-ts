@@ -9,9 +9,11 @@ export const ideasContext = createContext<Context | null>(null);
 
 export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
   const [ideas, setIdeas] = useState<Idea[]>(() => {
-    const storedIdeas = localStorage.getItem("ideas");    
-    
-    const sortedIdeas = storedIdeas ? sortIdeas("Date", JSON.parse(storedIdeas)) : [];
+    const storedIdeas = localStorage.getItem("ideas");
+
+    const sortedIdeas = storedIdeas
+      ? sortIdeas("Date", JSON.parse(storedIdeas))
+      : [];
 
     return sortedIdeas;
   });

@@ -31,7 +31,7 @@ describe("IdeaTile component", () => {
     render(<IdeaTile idea={idea} />, context);
     const deleteButton = screen.getAllByText("x")[0];
 
-   userEvent.click(deleteButton);
+    userEvent.click(deleteButton);
 
     expect(context.deleteIdea).toHaveBeenCalled();
   });
@@ -40,6 +40,6 @@ describe("IdeaTile component", () => {
     render(<IdeaTile idea={idea} />, context);
     const updateButton = screen.getByTestId("update-button");
 
-   userEvent.click(updateButton);
+    userEvent.click(updateButton);
   });
 });

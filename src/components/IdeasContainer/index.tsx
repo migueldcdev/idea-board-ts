@@ -10,20 +10,17 @@ import { SortingOptions, sortIdeas } from "../../utils/ideas/sortIdeas";
 
 const sortingValues = ["Date", "AZ"];
 
-
 export const IdeasContainer = () => {
-  const { ideas } = useContext(ideasContext) as Context;    
+  const { ideas } = useContext(ideasContext) as Context;
 
-  const [sortedIdeas, setSortedIdeas] = useState(ideas)
-
+  const [sortedIdeas, setSortedIdeas] = useState(ideas);
 
   function handleSort(value: SortingOptions) {
-    
-    let ideasArray = [...sortedIdeas]
+    let ideasArray = [...sortedIdeas];
 
-    ideasArray = sortIdeas(value, ideasArray)
+    ideasArray = sortIdeas(value, ideasArray);
 
-    setSortedIdeas(ideasArray)
+    setSortedIdeas(ideasArray);
   }
 
   return (
