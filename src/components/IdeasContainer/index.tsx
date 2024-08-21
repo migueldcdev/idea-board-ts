@@ -28,9 +28,12 @@ export const IdeasContainer = () => {
       {ideas.length > 0 ? (
         <div>
           <div className="py-6 px-2 text-white flex justify-center">
-            <label className="mt-1 font-bold">Sort by: </label>
+            <label className="mt-1 font-bold" htmlFor="sort">
+              Sort by:{" "}
+            </label>
             <select
               className="rounded ml-2 text-slate-900 p-1"
+              id="sort"
               onChange={(e) => handleSort(e.target.value as SortingOptions)}
             >
               {sortingValues.map((value, index) => (
