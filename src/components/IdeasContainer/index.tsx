@@ -2,24 +2,14 @@ import { useContext, useState } from "react";
 
 import { ideasContext } from "../../context/ideasContext";
 
-import { Context, Idea } from "../../types";
+import { Context } from "../../types";
 
 import { IdeaTile } from "../IdeaTile";
 
+import { SortingOptions, sortIdeas } from "../../utils/ideas/sortIdeas";
+
 const sortingValues = ["Date", "AZ"];
 
-type SortingOptions = "Date" | "AZ";
-
-export function sortIdeas(value: SortingOptions, ideas: Idea[]) {  
-
-  switch (value) {
-    case "Date":
-      return ideas.sort((x, y) => y.timestamp - x.timestamp)
-      break;
-    case "AZ":
-      return ideas.sort((x, y) => x.title.localeCompare(y.title))
-  }
-}
 
 export const IdeasContainer = () => {
   const { ideas } = useContext(ideasContext) as Context;    

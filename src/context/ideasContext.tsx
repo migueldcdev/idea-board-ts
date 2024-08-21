@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { sortIdeas } from "../components/IdeasContainer";
+import { sortIdeas } from "../utils/ideas/sortIdeas";
 
 import { Context, Idea, Input } from "../types";
 
