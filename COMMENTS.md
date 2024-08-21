@@ -22,7 +22,9 @@
 - Don't use fireEvent, use userEvent :white_check_mark:
 - Playwright: one or two big tests
 - Mock set local.storage
-- Move sorting logic to its own function and unit test it 
+- Move sorting logic to its own function :white_check_mark:
+- Unit test sorting logic
+- Add date ascending and alphabetically descending order
   
 
 ## Consider

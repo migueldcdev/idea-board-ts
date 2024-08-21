@@ -11,8 +11,9 @@ export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
   const [ideas, setIdeas] = useState<Idea[]>(() => {
     const storedIdeas = localStorage.getItem("ideas");    
     
+    const sortedIdeas = storedIdeas ? sortIdeas("Date", JSON.parse(storedIdeas)) : [];
 
-    return storedIdeas ? JSON.parse(localStorage.getItem("ideas")!) : [];
+    return sortedIdeas;
   });
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import { ideasContext } from "../../context/ideasContext";
 
@@ -24,6 +24,18 @@ export function sortIdeas(value: SortingOptions, ideas: Idea[]) {
 export const IdeasContainer = () => {
   const { ideas } = useContext(ideasContext) as Context;    
 
+  const [sortedIdeas, setSortedIdeas] = useState(ideas)
+
+
+  function handleSort(value: SortingOptions) {
+    
+    let ideasArray = [...sortedIdeas]
+
+    ideasArray = sortIdeas(value, ideasArray)
+
+    setSortedIdeas(ideasArray)
+  }
+
   return (
     <div>
       {ideas.length > 0 ? (
@@ -32,7 +44,7 @@ export const IdeasContainer = () => {
             <label className="mt-1 font-bold">Sort by: </label>
             <select
               className="rounded ml-2 text-slate-900 p-1"
-              onChange={(e) => sortIdeas(e.target.value as SortingOptions, ideas)}
+              onChange={(e) => handleSort(e.target.value as SortingOptions)}
             >
               {sortingValues.map((value, index) => (
                 <option key={index} value={value}>
@@ -42,7 +54,7 @@ export const IdeasContainer = () => {
             </select>
           </div>
           <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center place-items-center h-4/6">
-            {ideas.map((element) => (
+            {sortedIdeas.map((element) => (
               <IdeaTile key={element.id} idea={element} />
             ))}
           </div>
