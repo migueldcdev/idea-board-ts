@@ -1,6 +1,6 @@
 import { test, describe, expect, vi } from "vitest";
 import { render, screen } from "../../utils/test-utils";
-import userEvent from "@testing-library/user-event";
+import { userEvent } from "@testing-library/user-event";
 import { IdeaTile } from ".";
 
 const idea = {
@@ -32,13 +32,13 @@ describe("IdeaTile component", () => {
     const deleteIdea = vi.fn();
 
     render(<IdeaTile idea={idea} />, {...context, deleteIdea});
-    const deleteButton = screen.getAllByText("x")[0];
+    const deleteButton = screen.getByText("x");
 
     await userEvent.click(deleteButton);
 
     expect(deleteIdea).toHaveBeenCalled();
   });
-  //this test does not pass
+  
   test("update idea should be clickable", async () => {
     render(<IdeaTile idea={idea} />, context);
     const updateButton = screen.getByText("Update");
