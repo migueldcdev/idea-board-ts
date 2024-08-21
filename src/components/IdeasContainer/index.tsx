@@ -6,9 +6,9 @@ import { Context } from "../../types";
 
 import { IdeaTile } from "../IdeaTile";
 
-import { SortingOptions, sortIdeas } from "../../utils/ideas/sortIdeas";
+import { SortingOptions, sortIdeas } from "../../utils/ideas";
 
-const sortingValues = ["Date", "AZ"];
+const sortingValues = ["Newest", "Oldest", "AZ", "ZA"];
 
 export const IdeasContainer = () => {
   const { ideas } = useContext(ideasContext) as Context;

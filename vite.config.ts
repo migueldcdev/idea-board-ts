@@ -7,6 +7,6 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     globals: true,
-    dir: './src'
+    dir: "./src",
   },
 });

@@ -28,17 +28,16 @@ describe("IdeaTile component", () => {
   });
 
   test("should handle deleteIdea function", async () => {
-
     const deleteIdea = vi.fn();
 
-    render(<IdeaTile idea={idea} />, {...context, deleteIdea});
+    render(<IdeaTile idea={idea} />, { ...context, deleteIdea });
     const deleteButton = screen.getByText("x");
 
     await userEvent.click(deleteButton);
 
     expect(deleteIdea).toHaveBeenCalled();
   });
-  
+
   test("update idea should be clickable", async () => {
     render(<IdeaTile idea={idea} />, context);
     const updateButton = screen.getByText("Update");

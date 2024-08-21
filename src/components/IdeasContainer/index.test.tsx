@@ -41,5 +41,4 @@ describe("IdeasContainer component", () => {
     const ideaTiles = screen.getAllByRole("article");
     expect(ideaTiles.length).toBe(3);
   });
-  
 });
