@@ -1,29 +1,35 @@
 import { test, describe, expect, vi } from "vitest";
 import { render, screen } from "../../utils/test-utils";
-import userEvent from "@testing-library/user-event";
+import { userEvent } from "@testing-library/user-event";
 import { CreateIdeaButton } from ".";
 
 const context = {
   ideas: [],
   setIdeas: () => {},
-  createIdea: vi.fn(),
+  createIdea: () => {},
   deleteIdea: () => {},
   updateIdea: () => {},
 };
 
 describe("CreateIdeaButton component", () => {
+  
   test("should render", () => {
     render(<CreateIdeaButton />, context);
-    const button = screen.getAllByTestId("create-button");
-    expect(button.length).toBeGreaterThan(0);
+    const button = screen.getByText('Create idea')
+    expect(button).toBeDefined()
+    
   });
 
-  test("shoud handle createIdea function", () => {
-    render(<CreateIdeaButton />, context);
-    const button = screen.getAllByTestId("create-button")[0];
+  test("shoud handle createIdea function", async () => {
+    
+    const createIdea = vi.fn();
 
-    userEvent.click(button);
+    render(<CreateIdeaButton />, { ...context, createIdea });
 
-    expect(context.createIdea).toHaveBeenCalled();
+    const button = screen.getByText('Create idea')
+
+    await userEvent.click(button)
+
+    expect(createIdea).toHaveBeenCalled();
   });
 });
