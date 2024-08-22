@@ -17,11 +17,11 @@
 
 17/08/24
 
-- Don't use test ids
+- Don't use test ids :white_check_mark:
 - Improve accessibility score (Lighthouse Chrome) :white_check_mark:
 - Avoid array element selectors on testing :white_check_mark:
 - Don't use fireEvent, use userEvent :white_check_mark:
-- Playwright: one or two big tests
+- Playwright: one or two big tests :white_check_mark:
 - Mock set local.storage
 - Move sorting logic to its own function :white_check_mark:
 - Unit test sorting logic :white_check_mark:

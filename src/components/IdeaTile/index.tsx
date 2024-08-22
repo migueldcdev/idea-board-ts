@@ -34,7 +34,7 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
         </div>
       </div>
       <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="title"/>         
+        <label htmlFor="title" />
         <input
           type="text"
           id="title"
@@ -43,9 +43,8 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
           autoFocus
           {...register("title")}
           defaultValue={title}
-          data-testid="input-name"
         />
-        <label htmlFor="description"/>         
+        <label htmlFor="description" />
         <textarea
           className="rounded-lg bg-slate-200 p-3 resize-none text-slate-900 placeholder-slate-500"
           id="description"
@@ -55,7 +54,6 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
           {...register("description")}
           placeholder="Provide a brief description (max 140 characters)"
           defaultValue={description}
-          data-testid="input-description"
         />
         <div className="flex justify-between">
           {inputDescriptionLength >= 110 && (
@@ -70,7 +68,6 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
               className="rounded-full bg-indigo-800 text-white px-4 py-2 mt-3 ml-auto hover:bg-indigo-700 cursor-pointer"
               type="submit"
               value="Update"
-              data-testid="update-button"
             />
           ) : (
             <div className="py-6 mt-1"></div>
