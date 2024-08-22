@@ -22,7 +22,7 @@
 - Avoid array element selectors on testing :white_check_mark:
 - Don't use fireEvent, use userEvent :white_check_mark:
 - Playwright: one or two big tests :white_check_mark:
-- Mock set local.storage
+- Mock set local.storage :white_check_mark:
 - Move sorting logic to its own function :white_check_mark:
 - Unit test sorting logic :white_check_mark:
 - Add date ascending and alphabetically descending order :white_check_mark:
