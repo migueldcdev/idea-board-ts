@@ -34,24 +34,20 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
         </div>
       </div>
       <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="title" className="mt-4 text-sm text-slate-600">
-          Title:
-        </label>
+        <label htmlFor="title"/>         
         <input
           type="text"
           id="title"
-          className="rounded-lg p-3 bg-slate-200 text-slate-900 focus:border-indigo-500"
+          className="rounded-lg p-3 mt-6 bg-slate-200 text-slate-900 focus:border-indigo-500 placeholder-slate-500"
           placeholder="e.g. Idea proposal"
           autoFocus
           {...register("title")}
           defaultValue={title}
           data-testid="input-name"
         />
-        <label htmlFor="description" className="mt-2 text-sm text-slate-600">
-          Description:
-        </label>
+        <label htmlFor="description"/>         
         <textarea
-          className="rounded-lg bg-slate-200 p-3 resize-none text-slate-900"
+          className="rounded-lg bg-slate-200 p-3 resize-none text-slate-900 placeholder-slate-500"
           id="description"
           rows={4}
           cols={26}
