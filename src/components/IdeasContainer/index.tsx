@@ -13,16 +13,13 @@ const sortingValues = ["Newest", "Oldest", "AZ", "ZA"];
 export const IdeasContainer = () => {
   const { ideas } = useContext(ideasContext) as Context;
 
-  const [sortedIdeas, setSortedIdeas] = useState(ideas);
+  const [sortOption, setSortOption] = useState<SortingOptions>("Newest");
+
+  const sortedIdeas = sortIdeas(sortOption, ideas);
 
   function handleSort(value: SortingOptions) {
-    let ideasArray = [...sortedIdeas];
-
-    ideasArray = sortIdeas(value, ideasArray);
-
-    setSortedIdeas(ideasArray);
+    setSortOption(value);
   }
-
   return (
     <main>
       {ideas.length > 0 ? (

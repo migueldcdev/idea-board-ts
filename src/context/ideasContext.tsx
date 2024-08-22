@@ -1,8 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { sortIdeas } from "../utils/ideas";
-
 import { Context, Idea, Input } from "../types";
 
 export const ideasContext = createContext<Context | null>(null);
@@ -11,9 +9,7 @@ export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
   const [ideas, setIdeas] = useState<Idea[]>(() => {
     const storedIdeas = localStorage.getItem("ideas");
 
-    const sortedIdeas = storedIdeas
-      ? sortIdeas("Newest", JSON.parse(storedIdeas))
-      : [];
+    const sortedIdeas = storedIdeas ? JSON.parse(storedIdeas) : [];
 
     return sortedIdeas;
   });
