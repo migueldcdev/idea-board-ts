@@ -36,23 +36,22 @@ export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
     setIdeas(result);
   }
 
-  function updateIdea(id: string, input: Input) {
-    const index = ideas.findIndex((item) => item.id === id);
-    if (index !== -1) {
-      const updatedIdeas = [...ideas];
+  function updateIdea(id: string, input: Input) {    
 
-      const updatedIdea = {
-        ...updatedIdeas[index],
+    const updatedIdeas = ideas.map((idea) => {      
+      if(idea.id === id) {
+        idea = {
+        ...idea,  
         title: input.title,
         description: input.description,
         timestamp: Date.now(),
         updated: true,
-      };
-
-      updatedIdeas[index] = updatedIdea;
-
-      setIdeas(updatedIdeas);
-    }
+        }
+      }
+      return idea
+    })
+    
+    setIdeas(updatedIdeas)    
   }
 
   return (
