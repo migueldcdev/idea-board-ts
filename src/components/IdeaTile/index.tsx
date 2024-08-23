@@ -2,9 +2,7 @@ import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { ideasContext } from "../../context/ideasContext";
-
 import { Idea, Context, Input } from "../../types";
-
 import { unixToDate } from "../../utils/date";
 
 export const IdeaTile = ({ idea }: { idea: Idea }) => {

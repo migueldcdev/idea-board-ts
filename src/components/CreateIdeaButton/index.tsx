@@ -1,7 +1,6 @@
 import { useContext } from "react";
 
 import { ideasContext } from "../../context/ideasContext";
-
 import { Context } from "../../types";
 
 export const CreateIdeaButton = () => {

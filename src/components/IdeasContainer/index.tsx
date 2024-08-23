@@ -1,11 +1,8 @@
 import { useContext, useState } from "react";
 
 import { ideasContext } from "../../context/ideasContext";
-
 import { Context } from "../../types";
-
 import { IdeaTile } from "../IdeaTile";
-
 import { SortingOptions, sortIdeas } from "../../utils/ideas";
 
 const sortingValues = ["Newest", "Oldest", "AZ", "ZA"];
