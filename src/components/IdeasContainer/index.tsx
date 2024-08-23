@@ -1,14 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
-import { ideasContext } from "../../context/ideasContext";
-import { Context } from "../../types";
+import { useIdeasContext } from "../../context/ideasContext";
 import { SortingOptions, sortIdeas } from "../../utils/ideas";
 import { IdeaTile } from "../IdeaTile";
 
 const sortingValues = ["Newest", "Oldest", "AZ", "ZA"];
 
 export const IdeasContainer = () => {
-  const { ideas } = useContext(ideasContext) as Context;
+  const { ideas } = useIdeasContext();
 
   const [sortOption, setSortOption] = useState<SortingOptions>("Newest");
 

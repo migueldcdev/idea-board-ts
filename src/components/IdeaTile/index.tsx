@@ -1,12 +1,11 @@
-import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { ideasContext } from "../../context/ideasContext";
-import { Context, Idea, Input } from "../../types";
+import { useIdeasContext } from "../../context/ideasContext";
+import { Idea, Input } from "../../types";
 import { unixToDate } from "../../utils/date";
 
 export const IdeaTile = ({ idea }: { idea: Idea }) => {
-  const { deleteIdea, updateIdea } = useContext(ideasContext) as Context;
+  const { deleteIdea, updateIdea } = useIdeasContext();
 
   const { id, title, description } = idea as Idea;
 

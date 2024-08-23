@@ -1,10 +1,7 @@
-import { useContext } from "react";
-
-import { ideasContext } from "../../context/ideasContext";
-import { Context } from "../../types";
+import { useIdeasContext } from "../../context/ideasContext";
 
 export const CreateIdeaButton = () => {
-  const { createIdea } = useContext(ideasContext) as Context;
+  const { createIdea } = useIdeasContext();
 
   return (
     <div className=" fixed bottom-0 w-full bg-slate-100">

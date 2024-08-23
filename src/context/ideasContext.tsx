@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { Context, Idea, Input } from "../types";
@@ -60,4 +60,14 @@ export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
       {children}
     </ideasContext.Provider>
   );
+};
+
+// reduces imports and using "as Context" type everytime we use the context
+export const useIdeasContext = () => {
+  const context = useContext(ideasContext);
+  if (!context) {
+    throw new Error("useIdeaContext must be used within a user provider");
+  }
+
+  return context;
 };
