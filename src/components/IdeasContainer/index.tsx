@@ -30,8 +30,8 @@ export const IdeasContainer = () => {
               id="sort"
               onChange={(e) => handleSort(e.target.value as SortingOptions)}
             >
-              {sortingValues.map((value, index) => (
-                <option key={index} value={value}>
+              {sortingValues.map((value) => (
+                <option key={value} value={value}>
                   {value}
                 </option>
               ))}
