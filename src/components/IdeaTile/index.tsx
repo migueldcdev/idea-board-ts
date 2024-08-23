@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { ideasContext } from "../../context/ideasContext";
-import { Idea, Context, Input } from "../../types";
+import { Context, Idea, Input } from "../../types";
 import { unixToDate } from "../../utils/date";
 
 export const IdeaTile = ({ idea }: { idea: Idea }) => {
@@ -32,7 +32,9 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
         </div>
       </div>
       <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="title" className="text-xs text-slate-600 mt-6 ml-2">Title</label>
+        <label htmlFor="title" className="text-xs text-slate-600 mt-6 ml-2">
+          Title
+        </label>
         <input
           type="text"
           id="title"
@@ -42,7 +44,12 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
           {...register("title")}
           defaultValue={title}
         />
-        <label htmlFor="description" className="text-xs text-slate-600 mt-4 ml-2">Description</label>
+        <label
+          htmlFor="description"
+          className="text-xs text-slate-600 mt-4 ml-2"
+        >
+          Description
+        </label>
         <textarea
           className="rounded-lg bg-slate-200 p-3 resize-none text-slate-900 placeholder-slate-500"
           id="description"

@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
-import { ideasContext } from "../../context/ideasContext";
 import { ReactElement } from "react";
+import { ideasContext } from "../../context/ideasContext";
 
 import { Context } from "../../types";
 

@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 
 import { ideasContext } from "../../context/ideasContext";
 import { Context } from "../../types";
-import { IdeaTile } from "../IdeaTile";
 import { SortingOptions, sortIdeas } from "../../utils/ideas";
+import { IdeaTile } from "../IdeaTile";
 
 const sortingValues = ["Newest", "Oldest", "AZ", "ZA"];
 
@@ -49,7 +49,7 @@ export const IdeasContainer = () => {
             You haven't added any ideas yet.
           </p>
         </section>
-      )}     
+      )}
     </main>
   );
 };

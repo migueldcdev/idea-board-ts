@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { Context, Idea, Input } from "../types";
@@ -36,22 +36,21 @@ export const IdeasContext = ({ children }: { children: React.ReactNode }) => {
     setIdeas(result);
   }
 
-  function updateIdea(id: string, input: Input) {    
-
-    const updatedIdeas = ideas.map((idea) => {      
-      if(idea.id === id) {
+  function updateIdea(id: string, input: Input) {
+    const updatedIdeas = ideas.map((idea) => {
+      if (idea.id === id) {
         idea = {
-        ...idea,  
-        title: input.title,
-        description: input.description,
-        timestamp: Date.now(),
-        updated: true,
-        }
+          ...idea,
+          title: input.title,
+          description: input.description,
+          timestamp: Date.now(),
+          updated: true,
+        };
       }
-      return idea
-    })
-    
-    setIdeas(updatedIdeas)    
+      return idea;
+    });
+
+    setIdeas(updatedIdeas);
   }
 
   return (

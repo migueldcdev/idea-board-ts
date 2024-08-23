@@ -1,7 +1,7 @@
-import { test, describe, expect, vi } from "vitest";
-import { render, screen } from "../../utils/test-utils";
 import { userEvent } from "@testing-library/user-event";
+import { describe, expect, test, vi } from "vitest";
 import { CreateIdeaButton } from ".";
+import { render, screen } from "../../utils/test-utils";
 
 const context = {
   ideas: [],

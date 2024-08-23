@@ -1,7 +1,7 @@
-import { test, describe, expect, vi } from "vitest";
-import { render, screen } from "../../utils/test-utils";
 import { userEvent } from "@testing-library/user-event";
+import { describe, expect, test, vi } from "vitest";
 import { IdeaTile } from ".";
+import { render, screen } from "../../utils/test-utils";
 
 const idea = {
   id: "a8710270-9b41-4feb-bd7e-f91bd698cc5c",

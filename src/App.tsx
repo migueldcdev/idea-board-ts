@@ -1,6 +1,6 @@
-import { IdeasContext } from "./context/ideasContext";
-import { IdeasContainer } from "./components/IdeasContainer";
 import { CreateIdeaButton } from "./components/CreateIdeaButton";
+import { IdeasContainer } from "./components/IdeasContainer";
+import { IdeasContext } from "./context/ideasContext";
 
 function App() {
   return (

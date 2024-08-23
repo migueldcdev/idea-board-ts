@@ -1,4 +1,4 @@
-import { describe, test, expect, expectTypeOf } from "vitest";
+import { describe, expect, expectTypeOf, test } from "vitest";
 
 import { sortIdeas } from ".";
 
