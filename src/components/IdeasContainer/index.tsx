@@ -21,7 +21,7 @@ export const IdeasContainer = () => {
     setSortOption(value);
   }
   return (
-    <main>
+    <main className="pb-32">
       {ideas.length > 0 ? (
         <div>
           <div className="py-6 px-2 text-white flex justify-center">
@@ -52,8 +52,7 @@ export const IdeasContainer = () => {
             You haven't added any ideas yet.
           </p>
         </section>
-      )}
-      <div className="p-16"></div>
+      )}     
     </main>
   );
 };
