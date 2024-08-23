@@ -10,7 +10,12 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
 
   const { id, title, description } = idea as Idea;
 
-  const { register, watch, handleSubmit } = useForm<Input>();
+  const { register, watch, handleSubmit } = useForm<Input>({
+    defaultValues: {
+      title: title,
+      description: description,
+    },
+  });
   const onSubmit: SubmitHandler<Input> = (data) => updateIdea(id, data);
 
   const inputDescriptionLength = watch("description", "").length;
@@ -67,15 +72,14 @@ export const IdeaTile = ({ idea }: { idea: Idea }) => {
             </div>
           )}
 
-          {title !== watch("title", "") ||
-          description !== watch("description", "") ? (
+          {title !== watch("title") || description !== watch("description") ? (
             <input
               className="rounded-full bg-indigo-800 text-white px-4 py-2 mt-3 ml-auto hover:bg-indigo-700 cursor-pointer"
               type="submit"
               value="Update"
             />
           ) : (
-            <div className="py-6 mt-1"></div>
+            <div className="py-6 mt-1" />
           )}
         </div>
       </form>
