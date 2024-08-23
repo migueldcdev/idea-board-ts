@@ -14,7 +14,4 @@ export type Context = {
   updateIdea: (id: string, input: Input) => void;
 };
 
-export type Input = {
-  title: string;
-  description: string;
-};
+export type Input = Pick <Idea, "title" | "description">;
