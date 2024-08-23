@@ -19,13 +19,14 @@ describe("CreateIdeaButton component", () => {
   });
 
   test("shoud handle createIdea function", async () => {
+    const user = userEvent;
     const createIdea = vi.fn();
 
     render(<CreateIdeaButton />, { ...context, createIdea });
 
     const button = screen.getByText("Create idea");
 
-    await userEvent.click(button);
+    await user.click(button);
 
     expect(createIdea).toHaveBeenCalled();
   });

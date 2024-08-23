@@ -28,20 +28,29 @@ describe("IdeaTile component", () => {
   });
 
   test("should handle deleteIdea function", async () => {
+    const user = userEvent;
     const deleteIdea = vi.fn();
 
     render(<IdeaTile idea={idea} />, { ...context, deleteIdea });
     const deleteButton = screen.getByText("x");
 
-    await userEvent.click(deleteButton);
+    await user.click(deleteButton);
 
     expect(deleteIdea).toHaveBeenCalled();
   });
 
   test("update idea should be clickable", async () => {
-    render(<IdeaTile idea={idea} />, context);
-    const updateButton = screen.getByText("Update");
+    const user = userEvent;
 
-    await userEvent.click(updateButton);
+    render(<IdeaTile idea={idea} />, context);
+
+    const inputTitle = screen.getByPlaceholderText("e.g. Idea proposal");
+
+    await user.clear(inputTitle);
+    await user.type(inputTitle, "banana");
+
+    const updateButton = screen.getByRole("input");
+
+    await user.click(updateButton);
   });
 });
