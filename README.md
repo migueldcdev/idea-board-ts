@@ -1,5 +1,7 @@
 # Idea Board
 
+Idea board app that uses your browser local storage to persist your ideas.
+
 ![example-img](https://github.com/migueldcdev/repo-images/blob/main/idea-board/idea-board.png)
 
 ## Useful commands
