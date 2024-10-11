@@ -1,8 +1,8 @@
-# React + TypeScript + Vite
+# Idea Board
 
-This project is set up with React, TypeScript, and Vite for fast and modern development.
 
-## Getting Started
+
+## Useful commands
 
 ### Installation
 
